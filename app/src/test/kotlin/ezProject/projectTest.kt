@@ -45,16 +45,14 @@ class projectTest {
         ///write to File
         d.saveFile(filename,tl)
 
-        
-        
-                //assert that file has been saved
+        //assert that file has been saved
         var f = File(filename);
         assertTrue(f.exists() && !f.isDirectory())
         
         //assert that the file has been saved with the correct information
-        var tl2 = d.loadFile(filename)
-        
-        fail()
+        var tlFile = d.loadFile(filename)
+        print(tlFile.toString())
+        assertEquals("Task1\nTask2\nTask3\n", tlFile.toString())
     }
 
     fun createTaskList() : TaskList{
