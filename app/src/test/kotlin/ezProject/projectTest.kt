@@ -54,7 +54,7 @@ class projectTest {
         //assert that the file has been saved with the correct information
         var tl2 = d.loadFile(filename)
         
-        // fail()
+        fail()
     }
 
     fun createTaskList() : TaskList{
