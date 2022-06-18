@@ -1,7 +1,5 @@
 package ezProject
 
-import ezProject.Task
-
 class App {
     val greeting: String
         get() {
@@ -15,7 +13,4 @@ class App {
         val task = Task("Task")
         println(task.toString())
     }
-
 }
-
-

@@ -16,8 +16,8 @@ public class TaskList {
         return listString
     }
 
-    fun addTaskToList(t : Task){
-        //add task to List
+    fun addTaskToList(t: Task) {
+        // add task to List
         TaskList.add(t)
     }
 }

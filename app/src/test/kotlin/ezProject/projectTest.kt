@@ -1,11 +1,9 @@
 package ezProject
 
+import java.io.File
 import kotlin.test.Test
-import kotlin.test.fail
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
-import ezProject.Data
-import java.io.File
 
 class projectTest {
 
@@ -15,13 +13,12 @@ class projectTest {
         // Create Task
         val task = Task("Test")
         println(task.toString())
-    
-        //Update Task Name
+
+        // Update Task Name
         task.updateName("Task")
         println(task.toString())
 
         assertEquals("Task", task.toString())
-
     }
 
     @Test
@@ -31,7 +28,6 @@ class projectTest {
 
         print(tl.toString())
         assertEquals("Task1\nTask2\nTask3\n", tl.toString())
-
     }
 
     @Test
@@ -42,25 +38,25 @@ class projectTest {
         // create list
         var tl = createTaskList()
 
-        ///write to File
-        d.saveFile(filename,tl)
+        /// write to File
+        d.saveFile(filename, tl)
 
-        //assert that file has been saved
-        var f = File(filename);
+        // assert that file has been saved
+        var f = File(filename)
         assertTrue(f.exists() && !f.isDirectory())
-        
-        //assert that the file has been saved with the correct information
+
+        // assert that the file has been saved with the correct information
         var tlFile = d.loadFile(filename)
         print(tlFile.toString())
         assertEquals("Task1\nTask2\nTask3\n", tlFile.toString())
     }
 
-    fun createTaskList() : TaskList{
+    fun createTaskList(): TaskList {
 
         var Task1 = Task("Task1")
         var Task2 = Task("Task2")
         var Task3 = Task("Task3")
-        
+
         var tl = TaskList()
         tl.addTaskToList(Task1)
         tl.addTaskToList(Task2)

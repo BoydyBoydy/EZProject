@@ -1,13 +1,12 @@
 package ezProject
 
-public class Task{
+public class Task {
 
     var taskName = ""
 
-    constructor(name : String){
+    constructor(name: String) {
 
         updateName(name)
-
     }
 
     override fun toString(): String {
