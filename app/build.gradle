@@ -5,22 +5,13 @@ plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
 
-    // Kotlin UI
-    id('org.jetbrains.compose') version '1.1.1'
-
-}
-
-ext {
-    versionJVM = '1.8'
+        // Kotlin UI
+    id 'org.jetbrains.compose' version '1.1.1'
 }
 
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
-}
-
-configurations {
-    detekt
 }
 
 dependencies {
@@ -43,17 +34,19 @@ dependencies {
     testImplementation 'org.jetbrains.kotlin:kotlin-test-junit'
 
     // detekt - code analysis
-    detekt 'io.gitlab.arturbosch.detekt:detekt-cli:1.21.0-RC1'
+    // detekt 'io.gitlab.arturbosch.detekt:detekt-cli:1.21.0-RC1'
 }
 
 application {
     // Define the main class for the application.
     mainClass = 'ezProject.AppKt'
-
 }
 
-jar {
-    manifest {
-        attributes 'Main-Class': 'ezProject.AppKt'
-    }
-}
+// configurations {
+//     detekt
+// }
+
+// ext {
+//     versionJVM = '1.8'
+//     mainFile = 'ezProject.AppKt'
+// }
