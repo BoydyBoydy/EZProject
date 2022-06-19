@@ -14,6 +14,10 @@ repositories {
     mavenCentral()
 }
 
+configurations {
+    detekt
+}
+
 dependencies {
     // Align versions of all Kotlin components
     implementation platform('org.jetbrains.kotlin:kotlin-bom')
@@ -34,7 +38,7 @@ dependencies {
     testImplementation 'org.jetbrains.kotlin:kotlin-test-junit'
 
     // detekt - code analysis
-    // detekt 'io.gitlab.arturbosch.detekt:detekt-cli:1.21.0-RC1'
+    detekt 'io.gitlab.arturbosch.detekt:detekt-cli:1.21.0-RC1'
 }
 
 application {
@@ -42,9 +46,10 @@ application {
     mainClass = 'ezProject.AppKt'
 }
 
-// configurations {
-//     detekt
-// }
+def detektTask = tasks.register('detekt', JavaExec) {
+    mainClass = 'io.gitlab.arturbosch.detekt.cli.Main'
+    classpath = configurations.detekt
+}
 
 // ext {
 //     versionJVM = '1.8'
