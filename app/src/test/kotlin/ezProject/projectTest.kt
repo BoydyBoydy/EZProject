@@ -4,6 +4,7 @@ import java.io.File
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
+import kotlin.test.fail
 
 class projectTest {
 
@@ -63,5 +64,47 @@ class projectTest {
         tl.addTaskToList(Task3)
 
         return tl
+    }
+
+    // createTask
+    @Test
+    fun readTask(){
+
+        fail()
+    }
+
+    @Test
+    fun updateTask(){
+        fail()
+    }
+
+    @Test
+    fun deleteTask(){
+        fail()
+    }
+
+    @Test
+    fun createData(){
+        fail()
+    }
+    
+    @Test
+    fun readData(){
+        fail()
+    }
+
+    @Test
+    fun updateData(){
+        fail()
+    }
+
+    @Test
+    fun deleteData(){
+        fail()
+    }
+
+    @Test
+    fun saveDataToFile(){
+        fail()
     }
 }
