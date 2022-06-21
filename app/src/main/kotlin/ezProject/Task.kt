@@ -10,6 +10,10 @@ public class Task {
     }
 
     override fun toString(): String {
+        return readTask()
+    }
+
+    fun readTask() : String {
         return taskName
     }
 
