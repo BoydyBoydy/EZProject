@@ -1,14 +1,14 @@
 package ezProject
 
-import java.io.File
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertTrue
+import kotlin.test.fail
 
 class TaskTest {
 
+    // Task
     @Test
-    fun createAndReadTask() {
+    fun createReadUpdateTask() {
 
         // Create Task
         val task = Task("Test")
@@ -23,45 +23,46 @@ class TaskTest {
     }
 
     @Test
-    fun viewTaskList() {
+    fun deleteTask() {
+        // from TaskList
 
-        var tl = createTaskList()
+        var tl: TaskList = createTestList()
+        println(tl.readTaskList())
+        val task = tl.findTask("Task2")
 
-        print(tl.toString())
-        assertEquals("Task1\nTask2\nTask3\n", tl.toString())
+        tl.removeTaskFromList(task)
+        println()
+        println(tl.readTaskList())
+
+        var testArray = TaskList()
+        testArray.addTaskToList(Task("Task1"))
+        testArray.addTaskToList(Task("Task3"))
+        assertEquals(testArray.toString(), tl.readTaskList())
+    }
+
+    // Task List
+    @Test
+    fun createReadUpdateTaskList() {
+
+        var tl = createTestList()
+
+        print(tl.readTaskList())
+        assertEquals("Task1\nTask2\nTask3\n", tl.readTaskList())
     }
 
     @Test
-    fun saveTask() {
+    fun deleteTaskList() {
 
-        var d = Data()
-        var filename = "C:/Temp/Test.txt"
-        // create list
-        var tl = createTaskList()
+        var tl = createTestList()
+        tl.readTaskList()
 
-        /// write to File
-        d.saveFile(filename, tl)
-
-        // assert that file has been saved
-        var f = File(filename)
-        assertTrue(f.exists() && !f.isDirectory())
-
-        // assert that the file has been saved with the correct information
-        var tlFile = d.loadFile(filename)
-        print(tlFile.toString())
-        assertEquals("Task1\nTask2\nTask3\n", tlFile.toString())
+        fail()
     }
 
-    fun createTaskList(): TaskList {
-
-        var Task1 = Task("Task1")
-        var Task2 = Task("Task2")
-        var Task3 = Task("Task3")
-
-        var tl = TaskList()
-        tl.addTaskToList(Task1)
-        tl.addTaskToList(Task2)
-        tl.addTaskToList(Task3)
+    // creates Test List
+    fun createTestList(): TaskList {
+        var ct = CommonTest()
+        var tl = ct.createTaskList()
 
         return tl
     }

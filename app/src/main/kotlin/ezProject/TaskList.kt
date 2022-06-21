@@ -5,6 +5,11 @@ public class TaskList {
     var TaskList = ArrayList<Task>()
 
     override fun toString(): String {
+        return readTaskList()
+    }
+
+    fun readTaskList(): String {
+
         // print out all of the tasks in the list
 
         var listString = ""
@@ -19,5 +24,19 @@ public class TaskList {
     fun addTaskToList(t: Task) {
         // add task to List
         TaskList.add(t)
+    }
+
+    fun removeTaskFromList(t: Task?) {
+
+        TaskList.remove(t)
+    }
+
+    fun findTask(taskName: String): Task? {
+
+        val taskFind: Task? = TaskList.find { it.taskName == taskName }
+
+        println("$taskFind has been removed")
+
+        return taskFind
     }
 }
