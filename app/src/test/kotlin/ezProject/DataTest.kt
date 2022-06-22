@@ -1,10 +1,12 @@
 package ezProject
 
 import java.io.File
+import java.io.FileNotFoundException
+import java.io.IOException
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 import kotlin.test.assertTrue
-import kotlin.test.fail
 
 class DataTest {
 
@@ -31,27 +33,24 @@ class DataTest {
     }
 
     @Test
-    fun createData() {
-        fail()
-    }
+    fun loadEmptyOrNonExistingFile() {
+        // check that the file is empty and or existing
+        // parse an exception in this case
 
-    @Test
-    fun readData() {
-        fail()
-    }
+        var d = Data()
 
-    @Test
-    fun updateData() {
-        fail()
-    }
+        // fake file - what happens - FNF
+        val fileFake = ""
+        assertFailsWith<FileNotFoundException>() {
+            var tlFile = d.loadFile(fileFake)
+            println(tlFile.toString())
+        }
 
-    @Test
-    fun deleteData() {
-        fail()
-    }
-
-    @Test
-    fun saveDataToFile() {
-        fail()
+        // file found, but empty
+        val fileEmpty = "C:/Temp/empty.txt"
+        assertFailsWith<IOException>() {
+            var tlFile = d.loadFile(fileEmpty)
+            println(tlFile.toString())
+        }
     }
 }
