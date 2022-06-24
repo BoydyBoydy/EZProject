@@ -7,4 +7,4 @@ This will include many of the basics that everyone knows and loves, and hopefull
 If I really get started on this I will then include the roadmap of features, but for the moment I am investigating what I can do and what is already out there.
 
 ## Current Issues
-Gradle doesn't work properly, even though the code tests properly :)
+Working to update the architecture to Model-View-Controller
