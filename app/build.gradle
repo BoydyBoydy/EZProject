@@ -31,6 +31,10 @@ dependencies {
     //Kotlin UI
     implementation(compose.desktop.currentOs)
 
+    //Decompose UI - Navigation
+    implementation 'com.arkivanov.decompose:decompose:0.6.0'
+    implementation 'com.arkivanov.decompose:extensions-compose-jetbrains:0.6.0'
+
     // Use the Kotlin test library.
     testImplementation 'org.jetbrains.kotlin:kotlin-test'
 

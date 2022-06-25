@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -28,6 +29,16 @@ class App {
     //     println(task.toString())
     // }
 
+}
+
+@Composable
+fun TestUi() {
+
+    Column {
+        Text(text = "Please Change Me Back")
+
+        Button(onClick = {}) { Text("Not Changed Yet") }
+    }
 }
 
 // @OptIn(ExperimentalComposeUiApi::class)
