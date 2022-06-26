@@ -26,6 +26,7 @@ import ezProject.controller.rememberNavController
 import ezProject.view.HomeScreen
 import ezProject.view.NotificationScreen
 import ezProject.view.TaskScreen
+import ezProject.model.Project
 
 @Composable
 @Preview
@@ -34,6 +35,7 @@ fun App() {
     val screens = Screen.values().toList()
     val navController by rememberNavController(Screen.HomeScreen.name)
     val currentScreen by remember { navController.currentScreen }
+    val project = Project() // model
 
     MaterialTheme {
         Surface(modifier = Modifier.background(color = MaterialTheme.colors.background)) {
@@ -53,7 +55,7 @@ fun App() {
                 }
 
                 Box(modifier = Modifier.fillMaxHeight()) {
-                    CustomNavigationHost(navController = navController)
+                    CustomNavigationHost(navController = navController, project)
                 }
             }
         }
@@ -74,13 +76,13 @@ enum class Screen(val label: String, val icon: ImageVector) {
 }
 
 @Composable
-fun CustomNavigationHost(navController: NavController) {
+fun CustomNavigationHost(navController: NavController, project: Project) {
     NavigationHost(navController) {
                 composable(Screen.HomeScreen.name) { HomeScreen(navController) }
 
                 composable(Screen.NotificationsScreen.name) { NotificationScreen(navController) }
 
-                composable(Screen.TaskScreen.name) { TaskScreen(navController) }
+                composable(Screen.TaskScreen.name) { TaskScreen(navController, project) }
 
                 // composable(Screen.SettingsScreen.name) { SettingScreen(navController) }
 
