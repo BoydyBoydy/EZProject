@@ -36,8 +36,6 @@ public class TaskList {
 
         val taskFind: Task? = TaskList.find { it.taskName == taskName }
 
-        println("$taskFind has been removed")
-
         return taskFind
     }
 }

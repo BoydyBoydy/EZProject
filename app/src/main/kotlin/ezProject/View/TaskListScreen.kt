@@ -21,8 +21,6 @@ fun TaskListScreen(navController: NavController, project: Project) {
 
         val list = project.taskList
 
-        println(list)
-
         Text(list.toString())
     }
 }
