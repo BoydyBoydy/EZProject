@@ -9,7 +9,6 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Notifications
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.VerifiedUser
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -20,14 +19,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
-import ezProject.navcontroller.NavController
-import ezProject.navcontroller.NavigationHost
-import ezProject.navcontroller.composable
-import ezProject.navcontroller.rememberNavController
-import ezProject.screens.HomeScreen
-import ezProject.screens.NotificationScreen
-import ezProject.screens.TaskScreen
-
+import ezProject.controller.NavController
+import ezProject.controller.NavigationHost
+import ezProject.controller.composable
+import ezProject.controller.rememberNavController
+import ezProject.view.HomeScreen
+import ezProject.view.NotificationScreen
+import ezProject.view.TaskScreen
 
 @Composable
 @Preview
@@ -62,7 +60,9 @@ fun App() {
     }
 }
 
-fun main() = application { Window(onCloseRequest = ::exitApplication) { App() } }
+fun main() = application {
+    Window(onCloseRequest = ::exitApplication, title = "EZProject") { App() }
+}
 
 /** Sidebar - Screens */
 enum class Screen(val label: String, val icon: ImageVector) {
@@ -89,10 +89,7 @@ fun CustomNavigationHost(navController: NavController) {
             .build()
 }
 
-
-
-
-//Current
+// Current
 // import androidx.compose.foundation.layout.Box
 // import androidx.compose.foundation.layout.Column
 // import androidx.compose.foundation.layout.fillMaxSize
@@ -199,7 +196,7 @@ fun CustomNavigationHost(navController: NavController) {
 //     }
 // }
 
-//Original
+// Original
 // @OptIn(ExperimentalComposeUiApi::class)
 // fun main() = application {
 //     var view = View()

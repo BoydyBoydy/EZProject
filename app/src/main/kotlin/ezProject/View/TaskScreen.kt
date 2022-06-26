@@ -1,4 +1,4 @@
-package ezProject.screens
+package ezProject.view
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -8,23 +8,18 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import ezProject.navcontroller.NavController
+import ezProject.controller.NavController
 
 @Composable
-fun HomeScreen(
-    navController: NavController
-) {
+fun TaskScreen(navController: NavController) {
     Column(
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(navController.currentScreen.value)
-        Button(
-            onClick = {
-                navController.navigate(ezProject.Screen.TaskScreen.name)
-            }) {
-            Text("Navigate to Tasks")
+        Button(onClick = { navController.navigate(ezProject.Screen.HomeScreen.name) }) {
+            Text("Navigate to Home")
         }
     }
 }

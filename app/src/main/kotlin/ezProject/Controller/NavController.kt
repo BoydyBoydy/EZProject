@@ -1,17 +1,14 @@
-package ezProject.navcontroller
+package ezProject.controller
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 
-/**
- * NavController Class
- */
+/** NavController Class */
 class NavController(
-    private val startDestination: String,
-    private var backStackScreens: MutableSet<String> = mutableSetOf()
+        private val startDestination: String,
+        private var backStackScreens: MutableSet<String> = mutableSetOf()
 ) {
     // Variable to store the state of the current screen
     var currentScreen: MutableState<String> = mutableStateOf(startDestination)
@@ -19,7 +16,9 @@ class NavController(
     // Function to handle the navigation between the screen
     fun navigate(route: String) {
         if (route != currentScreen.value) {
-            if (backStackScreens.contains(currentScreen.value) && currentScreen.value != startDestination) {
+            if (backStackScreens.contains(currentScreen.value) &&
+                            currentScreen.value != startDestination
+            ) {
                 backStackScreens.remove(currentScreen.value)
             }
 
@@ -42,15 +41,11 @@ class NavController(
     }
 }
 
-
-/**
- * Composable to remember the state of the navcontroller
- */
+/** Composable to remember the state of the navcontroller */
 @Composable
 fun rememberNavController(
-    startDestination: String,
-    backStackScreens: MutableSet<String> = mutableSetOf()
+        startDestination: String,
+        backStackScreens: MutableSet<String> = mutableSetOf()
 ): MutableState<NavController> = rememberSaveable {
     mutableStateOf(NavController(startDestination, backStackScreens))
 }
-

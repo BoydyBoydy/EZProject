@@ -1,7 +1,8 @@
-package ezProject
+package ezProject.model
 
 import java.io.File
 import java.io.IOException
+import ezProject.model.TaskList
 
 public class Data {
 

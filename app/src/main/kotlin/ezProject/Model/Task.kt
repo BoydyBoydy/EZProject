@@ -1,4 +1,4 @@
-package ezProject
+package ezProject.model
 
 public class Task {
 
