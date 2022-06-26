@@ -1,5 +1,6 @@
 package ezProject
 
+import ezProject.model.Data
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.IOException
@@ -10,11 +11,14 @@ import kotlin.test.assertTrue
 
 class DataTest {
 
+    val fileNameTest = "C:/Temp/Test/Test.txt"
+    val fileNameEmpty = "C:/Temp/Test/empty.txt"
+
     @Test
     fun saveTask() {
 
         var d = Data()
-        var filename = "C:/Temp/Test.txt"
+        var filename = fileNameTest
         // create list
         var ct = CommonTest()
         var tl = ct.createTaskList()
@@ -39,7 +43,7 @@ class DataTest {
 
         var d = Data()
 
-        // fake file - what happens - FNF
+        // fake file - what happens - FNF / IO
         val fileFake = ""
         assertFailsWith<FileNotFoundException>() {
             var tlFile = d.loadFile(fileFake)
@@ -47,7 +51,7 @@ class DataTest {
         }
 
         // file found, but empty
-        val fileEmpty = "C:/Temp/empty.txt"
+        val fileEmpty = fileNameEmpty
         assertFailsWith<IOException>() {
             var tlFile = d.loadFile(fileEmpty)
             println(tlFile.toString())

@@ -1,5 +1,7 @@
 package ezProject
 
+import ezProject.model.Task
+import ezProject.model.TaskList
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.fail
@@ -52,6 +54,9 @@ class TaskTest {
 
     @Test
     fun deleteTaskList() {
+        // Might not need to delete from memory and just leave it as is
+        // but might also want to see what happens when you delete it through the Data Management
+        // Functions :)
 
         var tl = createTestList()
         tl.readTaskList()

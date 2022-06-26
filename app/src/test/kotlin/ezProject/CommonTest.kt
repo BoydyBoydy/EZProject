@@ -1,5 +1,8 @@
 package ezProject
 
+import ezProject.model.TaskList
+import ezProject.model.Task
+
 class CommonTest {
 
     fun createTaskList(): TaskList {

@@ -10,6 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import ezProject.controller.NavController
 import ezProject.model.Project
+import ezProject.model.Task
 
 @Composable
 fun TaskScreen(navController: NavController, project: Project) {
@@ -23,11 +24,13 @@ fun TaskScreen(navController: NavController, project: Project) {
             Text("Navigate to Home")
         }
 
-        Button(onClick = {}) { Text("Create New Task") }
+        Button(onClick = { project.addTaskToTaskList(Task("New Task")) }) {
+            Text("Create New Task")
+        }
 
-        Button(onClick = {}) { Text("Save List") }
+        Button(onClick = { project.saveToFile() }) { Text("Save List to File") }
 
-        Button(onClick = {}) { Text("Remove List") }
+        Button(onClick = { project.deleteTaskList() }) { Text("Remove List") }
 
         Button(onClick = { println(project.readTaskList()) }) { Text("View List") }
     }
