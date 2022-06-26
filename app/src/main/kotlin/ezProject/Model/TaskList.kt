@@ -15,6 +15,7 @@ public class TaskList {
         var listString = ""
         val tlIterator = TaskList.iterator()
         while (tlIterator.hasNext()) {
+
             listString += tlIterator.next()
             listString += "\n"
         }

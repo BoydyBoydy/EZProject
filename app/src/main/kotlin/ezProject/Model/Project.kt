@@ -4,16 +4,19 @@ class Project {
 
     // holds all of the project information
 
-    var tl = TaskList()
+    var taskList = TaskList()
     var fileNameDB = "C:/Temp/Prod/Prod.txt"
 
     fun readTaskList(): String {
-        return tl.readTaskList()
+
+        var list = taskList.readTaskList()
+
+        return taskList.readTaskList()
     }
 
     fun addTaskToTaskList(task: Task) {
 
-        tl.addTaskToList(task)
+        taskList.addTaskToList(task)
     }
 
     fun saveToFile() {
@@ -21,11 +24,11 @@ class Project {
         var d = Data()
 
         /// write to File
-        d.saveFile(fileNameDB, tl)
+        d.saveFile(fileNameDB, taskList)
     }
 
     fun deleteTaskList() {
 
-        tl = TaskList()
+        taskList = TaskList()
     }
 }

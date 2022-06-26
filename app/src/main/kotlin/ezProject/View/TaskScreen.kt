@@ -32,6 +32,8 @@ fun TaskScreen(navController: NavController, project: Project) {
 
         Button(onClick = { project.deleteTaskList() }) { Text("Remove List") }
 
-        Button(onClick = { println(project.readTaskList()) }) { Text("View List") }
+        Button(onClick = { navController.navigate(ezProject.Screen.TaskListScreen.name) }) {
+            Text("View List")
+        }
     }
 }
