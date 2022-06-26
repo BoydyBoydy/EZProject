@@ -22,9 +22,9 @@ fun HomeScreen(
         Text(navController.currentScreen.value)
         Button(
             onClick = {
-                navController.navigate(ezProject.Screen.ProfileScreens.name)
+                navController.navigate(ezProject.Screen.TaskScreen.name)
             }) {
-            Text("Navigate to Profile")
+            Text("Navigate to Tasks")
         }
     }
 }

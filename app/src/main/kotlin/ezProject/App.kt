@@ -26,6 +26,7 @@ import ezProject.navcontroller.composable
 import ezProject.navcontroller.rememberNavController
 import ezProject.screens.HomeScreen
 import ezProject.screens.NotificationScreen
+import ezProject.screens.TaskScreen
 
 
 @Composable
@@ -63,12 +64,13 @@ fun App() {
 
 fun main() = application { Window(onCloseRequest = ::exitApplication) { App() } }
 
-/** Screens */
+/** Sidebar - Screens */
 enum class Screen(val label: String, val icon: ImageVector) {
     HomeScreen(label = "Home", icon = Icons.Filled.Home),
     NotificationsScreen(label = "Notifications", icon = Icons.Filled.Notifications),
-    SettingsScreen(label = "Settings", icon = Icons.Filled.Settings),
-    ProfileScreens(label = "User Profile", icon = Icons.Filled.VerifiedUser)
+    TaskScreen(label = "Task", icon = Icons.Filled.VerifiedUser)
+    // SettingsScreen(label = "Settings", icon = Icons.Filled.Settings),
+    // ProfileScreens(label = "User Profile", icon = Icons.Filled.VerifiedUser)
 }
 
 @Composable
@@ -77,6 +79,8 @@ fun CustomNavigationHost(navController: NavController) {
                 composable(Screen.HomeScreen.name) { HomeScreen(navController) }
 
                 composable(Screen.NotificationsScreen.name) { NotificationScreen(navController) }
+
+                composable(Screen.TaskScreen.name) { TaskScreen(navController) }
 
                 // composable(Screen.SettingsScreen.name) { SettingScreen(navController) }
 
