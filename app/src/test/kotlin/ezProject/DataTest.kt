@@ -1,18 +1,20 @@
 package ezProject
 
 import ezProject.model.Data
+import ezProject.model.TaskList
 import java.io.File
-import java.io.FileNotFoundException
 import java.io.IOException
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
 import kotlin.test.assertTrue
+import kotlin.test.fail
 
 class DataTest {
 
     val fileNameTest = "C:/Temp/Test/Test.txt"
     val fileNameEmpty = "C:/Temp/Test/empty.txt"
+    val fileFake = "fake"
 
     @Test
     fun saveTask() {
@@ -42,19 +44,23 @@ class DataTest {
         // parse an exception in this case
 
         var d = Data()
+        var tlFile: TaskList
 
+        // needs to be updated correctly with a way to determine if it is a fake file or that it is
+        // empty
         // fake file - what happens - FNF / IO
-        val fileFake = ""
-        assertFailsWith<FileNotFoundException>() {
-            var tlFile = d.loadFile(fileFake)
+        assertFailsWith<IOException>() {
+            tlFile = d.loadFile(fileFake)
             println(tlFile.toString())
+
+            // file found, but empty
+            val fileEmpty = fileNameEmpty
+            assertFailsWith<IOException>() {
+                tlFile = d.loadFile(fileEmpty)
+                println(tlFile.toString())
+            }
         }
 
-        // file found, but empty
-        val fileEmpty = fileNameEmpty
-        assertFailsWith<IOException>() {
-            var tlFile = d.loadFile(fileEmpty)
-            println(tlFile.toString())
-        }
+        fail()
     }
 }

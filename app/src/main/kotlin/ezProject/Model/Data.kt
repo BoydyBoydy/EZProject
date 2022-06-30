@@ -1,8 +1,8 @@
 package ezProject.model
 
 import java.io.File
+import java.io.FileNotFoundException
 import java.io.IOException
-import ezProject.model.TaskList
 
 public class Data {
 
@@ -17,10 +17,19 @@ public class Data {
 
     fun loadFile(filename: String): TaskList {
         // Load Task File from file
-        
+
         var tl = TaskList()
-        var fileLines = readFile(filename)
-        fileLines.forEach { tl.addTaskToList(Task(it)) }
+        try {
+            var fileLines = readFile(filename)
+
+            fileLines.forEach { tl.addTaskToList(Task(it)) }
+        } catch (e: IOException) {
+            println("IO Exception")
+            throw IOException("File Empty or Not Found")
+        } catch (e: FileNotFoundException) {
+            println("FileNotFoundException")
+            throw IOException("File Not Found")
+        }
 
         return tl
     }
@@ -30,7 +39,6 @@ public class Data {
         // file exists check
         var f = File(fileName)
         if (!f.exists() && f.isDirectory()) {
-
             throw IOException("File Path does not exist or File is empty")
         }
 
