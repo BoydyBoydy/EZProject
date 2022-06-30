@@ -2,7 +2,7 @@ package ezProject.model
 
 public class TaskList {
 
-    var TaskList = ArrayList<Task>()
+    var taskList = ArrayList<Task>()
 
     override fun toString(): String {
         return readTaskList()
@@ -13,7 +13,7 @@ public class TaskList {
         // print out all of the tasks in the list
 
         var listString = ""
-        val tlIterator = TaskList.iterator()
+        val tlIterator = taskList.iterator()
         while (tlIterator.hasNext()) {
 
             listString += tlIterator.next()
@@ -24,17 +24,17 @@ public class TaskList {
 
     fun addTaskToList(t: Task) {
         // add task to List
-        TaskList.add(t)
+        taskList.add(t)
     }
 
     fun removeTaskFromList(t: Task?) {
 
-        TaskList.remove(t)
+        taskList.remove(t)
     }
 
     fun findTask(taskName: String): Task? {
 
-        val taskFind: Task? = TaskList.find { it.taskName == taskName }
+        val taskFind: Task? = taskList.find { it.taskName == taskName }
 
         return taskFind
     }

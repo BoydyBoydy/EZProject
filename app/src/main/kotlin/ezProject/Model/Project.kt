@@ -9,8 +9,6 @@ class Project {
 
     fun readTaskList(): String {
 
-        var list = taskList.readTaskList()
-
         return taskList.readTaskList()
     }
 
