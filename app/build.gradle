@@ -5,7 +5,7 @@ plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
 
-        // Kotlin UI
+    // Kotlin UI
     id 'org.jetbrains.compose' version '1.1.1'
 }
 
@@ -30,10 +30,6 @@ dependencies {
 
     //Kotlin UI
     implementation(compose.desktop.currentOs)
-
-    //Decompose UI - Navigation
-    // implementation 'com.arkivanov.decompose:decompose:0.6.0'
-    // implementation 'com.arkivanov.decompose:extensions-compose-jetbrains:0.6.0'
     
     // Icons
     implementation(compose.materialIconsExtended)
@@ -57,8 +53,3 @@ def detektTask = tasks.register('detekt', JavaExec) {
     mainClass = 'io.gitlab.arturbosch.detekt.cli.Main'
     classpath = configurations.detekt
 }
-
-// ext {
-//     versionJVM = '1.8'
-//     mainFile = 'ezProject.AppKt'
-// }
